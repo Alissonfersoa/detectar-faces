@@ -6,7 +6,7 @@ print('Carregando código.....')
 face_cascade = cv.CascadeClassifier(cv.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 #Seleciona a imagem
-imagem = cv.imread('img/imagem1.jpg')
+imagem = cv.imread('img/imagem7.jpg')
 
 #Converte para preto e branco/escala de cinza
 gray = cv.cvtColor(imagem, cv.COLOR_BGR2GRAY)
