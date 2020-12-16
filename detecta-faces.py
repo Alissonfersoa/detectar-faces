@@ -6,12 +6,12 @@ print('Carregando código.....')
 face_cascade = cv.CascadeClassifier(cv.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 #Seleciona a imagem
-imagem = cv.imread('img/imagem7.jpg')
+imagem = cv.imread('img/imagem2.jpg')
 
 #Converte para preto e branco/escala de cinza
 gray = cv.cvtColor(imagem, cv.COLOR_BGR2GRAY)
 
-faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=3, minSize=(10, 10))
+faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=3, minSize=(10, 10), flags=cv.CASCADE_SCALE_IMAGE)
 
 #Percorre faces/rostos
 for (x, y, l, a) in faces:
@@ -19,9 +19,9 @@ for (x, y, l, a) in faces:
     cv.rectangle(imagem,(x,y),(x+l,y+a),(255,255,0),2)
 
     #Contador de faces
-    #contador = str(faces.shape[0])
+    contador = str(faces.shape[0])
     #cv.putText(imagem, contador, (x + 10, y - 10), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv.LINE_AA)
-    #cv.putText(imagem, "Quantidade de Faces: " + contador, (10, 450), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv.LINE_AA)
+    cv.putText(imagem, "Quantidade de Faces: " + contador, (10,30), cv.FONT_HERSHEY_SIMPLEX, 0.50, (0, 0, 0), 2)
 
 print('Face detectada!!.....')
 cv.imshow("FACE", imagem)
